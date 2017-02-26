@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/roman/pb171/pb173-test/main.cpp
+mbedtls/cipher.h
+/home/roman/pb171/pb173-test/mbedtls/cipher.h
+mbedtls/entropy.h
+/home/roman/pb171/pb173-test/mbedtls/entropy.h
+mbedtls/ctr_drbg.h
+/home/roman/pb171/pb173-test/mbedtls/ctr_drbg.h
+stdio.h
+-
+string.h
+-
+mbed-drivers/test_env.h
+/home/roman/pb171/pb173-test/mbed-drivers/test_env.h
+minar/minar.h
+/home/roman/pb171/pb173-test/minar/minar.h
+

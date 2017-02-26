@@ -1,1 +1,1 @@
-/usr/bin/c++   -g   CMakeFiles/pb173_test.dir/main.cpp.o  -o pb173_test 
+/usr/bin/c++   -g   CMakeFiles/pb173_test.dir/main.cpp.o  -o pb173_test -lmbedtls -lmbedcrypto -lmbedx509 
