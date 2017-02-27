@@ -1,0 +1,5 @@
+Podarilo sa mi z oficialnej stranky mbedtls stiahnut certifikat aj s verejnym
+klucom a ten kluc si importovat ku sebe, ale nepodarilo sa mi overit kniznicu
+ktoru som si stiahol, neprisiel som na to s cim mam overit ten verejny kluc.
+Podarilo sa mi overit hash checksum stiahnutej kniznice s tym co je napisane
+na stranke, ale to nie je uplne relevantne overenie.
