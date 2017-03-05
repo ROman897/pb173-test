@@ -35,7 +35,7 @@
 
 #include <string.h>
 
-#include "mbedtls/aes.h"
+#include "aes.h"
 #if defined(MBEDTLS_PADLOCK_C)
 #include "padlock.h"
 #endif
