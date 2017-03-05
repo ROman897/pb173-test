@@ -172,6 +172,21 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Build mbed TLS programs.
+ENABLE_PROGRAMS:BOOL=ON
+
+//Build mbed TLS tests.
+ENABLE_TESTING:BOOL=ON
+
+//Build mbed TLS with zlib library.
+ENABLE_ZLIB_SUPPORT:BOOL=OFF
+
+//Install mbed TLS headers.
+INSTALL_MBEDTLS_HEADERS:BOOL=ON
+
+//Explicitly link mbed TLS library to pthread.
+LINK_WITH_PTHREAD:BOOL=OFF
+
 //The directory containing a CMake configuration file for LibXML++.
 LibXML++_DIR:PATH=LibXML++_DIR-NOTFOUND
 
@@ -180,6 +195,9 @@ MBEDTLS+_DIR:PATH=MBEDTLS+_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for MBEDTLS.
 MBEDTLS_DIR:PATH=MBEDTLS_DIR-NOTFOUND
+
+//Path to a program.
+PERL_EXECUTABLE:FILEPATH=/usr/bin/perl
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
@@ -192,6 +210,27 @@ ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
 //Dependencies for target
 TLS_LIB_DEPENDS:STATIC=
+
+//Allow unsafe builds. These builds ARE NOT SECURE.
+UNSAFE_BUILD:BOOL=OFF
+
+//Build mbed TLS with the pkcs11-helper library.
+USE_PKCS11_HELPER_LIBRARY:BOOL=OFF
+
+//Build mbed TLS shared library.
+USE_SHARED_MBEDTLS_LIBRARY:BOOL=OFF
+
+//Build mbed TLS static library.
+USE_STATIC_MBEDTLS_LIBRARY:BOOL=ON
+
+//Dependencies for target
+aes_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+mbed TLS_BINARY_DIR:STATIC=/home/roman/pb171/pb173-test/cmake-build-debug/mbedtls-2.4.0
+
+//Value Computed by CMake
+mbed TLS_SOURCE_DIR:STATIC=/home/roman/pb171/pb173-test/mbedtls-2.4.0
 
 //Path to mbedcrypto library
 mbedTLS_CRYPTO_LIBRARY:FILEPATH=/usr/local/lib/libmbedcrypto.so
@@ -215,10 +254,16 @@ mbed_LIB_DEPENDS:STATIC=
 mbed_TLS_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
-mbedtls-2.4.0_LIB_DEPENDS:STATIC=
+mbedcrypto_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
-mbedtls_LIB_DEPENDS:STATIC=
+mbedtls-2.4.0_LIB_DEPENDS:STATIC=
+
+//Dependencies for the target
+mbedtls_LIB_DEPENDS:STATIC=general;mbedx509;
+
+//Dependencies for the target
+mbedx509_LIB_DEPENDS:STATIC=general;mbedcrypto;
 
 //Value Computed by CMake
 pb173_test_BINARY_DIR:STATIC=/home/roman/pb171/pb173-test/cmake-build-debug
@@ -303,6 +348,14 @@ CMAKE_GENERATOR:INTERNAL=Unix Makefiles
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Have symbol pthread_create
+CMAKE_HAVE_LIBC_CREATE:INTERNAL=
+//Have library pthreads
+CMAKE_HAVE_PTHREADS_CREATE:INTERNAL=
+//Have library pthread
+CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/roman/pb171/pb173-test
@@ -364,8 +417,12 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Perl
+FIND_PACKAGE_MESSAGE_DETAILS_Perl:INTERNAL=[/usr/bin/perl][v5.22.1()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 MBEDTLS_CFLAGS:INTERNAL=-D_REENTRANT;-I/usr/include/SDL2
 MBEDTLS_CFLAGS_I:INTERNAL=
 MBEDTLS_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
@@ -456,6 +513,8 @@ MBEDTLS_sdl2_INCLUDEDIR:INTERNAL=
 MBEDTLS_sdl2_LIBDIR:INTERNAL=
 MBEDTLS_sdl2_PREFIX:INTERNAL=
 MBEDTLS_sdl2_VERSION:INTERNAL=
+//ADVANCED property for variable: PERL_EXECUTABLE
+PERL_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_getconf

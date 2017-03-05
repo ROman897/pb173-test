@@ -1,0 +1,2 @@
+/usr/bin/ar qc libaes.a  CMakeFiles/aes.dir/mbedtls-2.4.0/library/aes.c.o
+/usr/bin/ranlib libaes.a

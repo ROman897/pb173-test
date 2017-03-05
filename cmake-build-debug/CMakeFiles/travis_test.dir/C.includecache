@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/roman/pb171/pb173-test/libs/aes.c
+mbedtls/config.h
+/home/roman/pb171/pb173-test/libs/mbedtls/config.h
+string.h
+-
+mbedtls/aes.h
+/home/roman/pb171/pb173-test/libs/mbedtls/aes.h
+mbedtls/padlock.h
+/home/roman/pb171/pb173-test/libs/mbedtls/padlock.h
+mbedtls/aesni.h
+/home/roman/pb171/pb173-test/libs/mbedtls/aesni.h
+mbedtls/platform.h
+/home/roman/pb171/pb173-test/libs/mbedtls/platform.h
+stdio.h
+-
+
+/home/roman/pb171/pb173-test/libs/aesni.c
+mbedtls/config.h
+/home/roman/pb171/pb173-test/libs/mbedtls/config.h
+mbedtls/aesni.h
+/home/roman/pb171/pb173-test/libs/mbedtls/aesni.h
+string.h
+-
+
+/home/roman/pb171/pb173-test/libs/sha512.c
+mbedtls/config.h
+/home/roman/pb171/pb173-test/libs/mbedtls/config.h
+mbedtls/sha512.h
+/home/roman/pb171/pb173-test/libs/mbedtls/sha512.h
+string.h
+-
+mbedtls/platform.h
+/home/roman/pb171/pb173-test/libs/mbedtls/platform.h
+stdio.h
+-
+stdlib.h
+-
+

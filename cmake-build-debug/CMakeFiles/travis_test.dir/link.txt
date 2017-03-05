@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/travis_test.dir/libs/aesni.c.o CMakeFiles/travis_test.dir/libs/aes.c.o CMakeFiles/travis_test.dir/libs/sha512.c.o CMakeFiles/travis_test.dir/securityfunctions.cpp.o CMakeFiles/travis_test.dir/testing.cpp.o  -o travis_test 
