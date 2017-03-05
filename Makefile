@@ -2,7 +2,7 @@
 # Variables CC and CXX are automatically set on all UNIX systems.
 
 # Variable settings
-CXXFLAGS=-fpermissive -std=c++11
+CXXFLAGS=-fpermissive -std=c++0x
 SOURCES_GEN=libs/aesni.c libs/aes.c libs/sha512.c securityfunctions.cpp
 # Source and object lists for main program
 SOURCES_MAIN=$(SOURCES_GEN) main.cpp
