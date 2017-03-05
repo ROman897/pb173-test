@@ -15,7 +15,7 @@ void printHelp();
 void hashFileSHA2_512(const char* src, const char* dest = nullptr);
 bool verifyHashSHA_512(const char* src, const char* hashDest);
 void encryptFileAES_128(const char* src, const char* dest = nullptr);
-void decryptFileAES_128(const char* src, const char* dest = nullptr);
+void decryptFileAES_128(const char* src, unsigned long outputLength, const char* dest = nullptr);
 int getInt();
 
 #endif //PB173_TEST_SECURITYFUNCTIONS_H

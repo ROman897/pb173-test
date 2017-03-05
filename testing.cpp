@@ -60,53 +60,62 @@ TEST_CASE("test verify hash", "[sha-512]") {
 
 
 
-    REQUIRE(verifyHashSHA_512("./files/in", "./files/out") == true);
-    REQUIRE(verifyHashSHA_512("./files/in", "./files/out2") == false);
+    REQUIRE(verifyHashSHA_512("./files/in", "./files/out"));
+    REQUIRE(! verifyHashSHA_512("./files/in", "./files/out2"));
 }
 
-/*
+TEST_CASE("test encryption","[aes-128 encryption]"){
+    std::ofstream source("./files/in", std::ios::out);
+    if (! source.is_open()){
+        return;
+    }
+    source << "this is ecrypted message bla bla bla ...";
+    source.close();
+    encryptFileAES_128("./files/in", "./files/encrypted");
+    std::ifstream destFile("./files/encrypted", std::ios::in);
+    if (! destFile.is_open()){
+        return;
+    }
+    std::string output((std::istreambuf_iterator<char>(destFile)), std::istreambuf_iterator<char>());
+
+    std::ifstream testFile("./files/encryptedTesting", std::ios::in);
+    if (! destFile.is_open()){
+        return;
+    }
+    std::string testOutput((std::istreambuf_iterator<char>(testFile)), std::istreambuf_iterator<char>());
+    //REQUIRE(output == rightOutput);
+    REQUIRE(testOutput == output);
+}
+
+
 TEST_CASE("test encryption and decryption","[aes-128]"){
     std::ofstream source("./files/in", std::ios::out);
     if (! source.is_open()){
         return;
     }
-    source << "this is ecrypted message bla bla bla ..." << std::ios::eofbit;
+    source << "this is ecrypted message bla bla bla ...";
     source.close();
 
-    //char enctyptedText[] ="]J�KCs�7��u�^L��^X UmN"
-                //"+���^K�����q��)zG��\{";
     encryptFileAES_128("./files/in", "./files/encrypted");
+    decryptFileAES_128("./files/encrypted", 40, "./files/decrypted");
 
-    //std::ifstream encryptedFile("./files/encrypted", std::ios::binary | std::ios::in);
-    //if (! encryptedFile.is_open()){
-        //return;
-    //}
-    //std::stringstream encryptedBuffer;
-    //encryptedBuffer << encryptedFile.rdbuf();
-    //std::string bufferText = encryptedBuffer.str().substr(0, encryptedBuffer.str().length() - 1);
-    //std::cout << "buffer text read from encrypted file " << bufferText << std::endl;
-    //std::cout << "text in string: " << enctyptedText << std::endl;
 
-    //REQUIRE(memcmp(enctyptedText, bufferText.c_str(), bufferText.length()) == 0);
 
-    decryptFileAES_128("./files/encrypted", "./files/decrypted");
-    std::ifstream decryptedFile("./files/decrypted", std::ios::binary | std::ios::in);
+    std::ifstream decryptedFile("./files/decrypted", std::ios::in);
     if (! decryptedFile.is_open()){
         return;
     }
-    std::stringstream decryptedBuffer;
-    decryptedBuffer << decryptedFile.rdbuf();
+    std::string decryptedText((std::istreambuf_iterator<char>(decryptedFile)), std::istreambuf_iterator<char>());
 
-    source.open("./files/in", std::ios::binary | std::ios::out);
+    std::ifstream sourceF("./files/in", std::ios::out);
     if (! source.is_open()){
         return;
     }
-    std::stringstream sourceBuffer;
-    sourceBuffer << source.rdbuf();
+    std::string originalInput((std::istreambuf_iterator<char>(sourceF)), std::istreambuf_iterator<char>());
 
-    REQUIRE(memcmp(sourceBuffer.str().c_str(), decryptedBuffer.str().c_str(), decryptedBuffer.str().length()) == 0);
+    REQUIRE(originalInput == decryptedText);
 
 
 
 }
- */
+

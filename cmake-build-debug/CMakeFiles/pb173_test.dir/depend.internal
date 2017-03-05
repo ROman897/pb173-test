@@ -3,10 +3,29 @@
 
 CMakeFiles/pb173_test.dir/libs/aes.c.o
  /home/roman/pb171/pb173-test/libs/aes.c
+ /home/roman/pb171/pb173-test/libs/aes.h
+ /home/roman/pb171/pb173-test/libs/aesni.h
+ /home/roman/pb171/pb173-test/libs/check_config.h
+ /home/roman/pb171/pb173-test/libs/config.h
+ /home/roman/pb171/pb173-test/libs/padlock.h
+ /home/roman/pb171/pb173-test/libs/platform.h
+ /home/roman/pb171/pb173-test/libs/platform_time.h
+ /home/roman/pb171/pb173-test/libs/target_config.h
 CMakeFiles/pb173_test.dir/libs/aesni.c.o
+ /home/roman/pb171/pb173-test/libs/aes.h
  /home/roman/pb171/pb173-test/libs/aesni.c
+ /home/roman/pb171/pb173-test/libs/aesni.h
+ /home/roman/pb171/pb173-test/libs/check_config.h
+ /home/roman/pb171/pb173-test/libs/config.h
+ /home/roman/pb171/pb173-test/libs/target_config.h
 CMakeFiles/pb173_test.dir/libs/sha512.c.o
+ /home/roman/pb171/pb173-test/libs/check_config.h
+ /home/roman/pb171/pb173-test/libs/config.h
+ /home/roman/pb171/pb173-test/libs/platform.h
+ /home/roman/pb171/pb173-test/libs/platform_time.h
  /home/roman/pb171/pb173-test/libs/sha512.c
+ /home/roman/pb171/pb173-test/libs/sha512.h
+ /home/roman/pb171/pb173-test/libs/target_config.h
 CMakeFiles/pb173_test.dir/main.cpp.o
  /home/roman/pb171/pb173-test/main.cpp
  /home/roman/pb171/pb173-test/securityfunctions.h
@@ -16,4 +35,5 @@ CMakeFiles/pb173_test.dir/securityfunctions.cpp.o
  /home/roman/pb171/pb173-test/libs/cipher.h
  /home/roman/pb171/pb173-test/libs/config.h
  /home/roman/pb171/pb173-test/libs/sha512.h
+ /home/roman/pb171/pb173-test/libs/target_config.h
  /home/roman/pb171/pb173-test/securityfunctions.cpp

@@ -27,8 +27,8 @@ stddef.h
 -
 
 /home/roman/pb171/pb173-test/libs/config.h
-mbedtls/target_config.h
-/home/roman/pb171/pb173-test/libs/mbedtls/target_config.h
+target_config.h
+/home/roman/pb171/pb173-test/libs/target_config.h
 check_config.h
 /home/roman/pb171/pb173-test/libs/check_config.h
 
@@ -41,6 +41,8 @@ stdint.h
 -
 sha512_alt.h
 /home/roman/pb171/pb173-test/libs/sha512_alt.h
+
+/home/roman/pb171/pb173-test/libs/target_config.h
 
 /home/roman/pb171/pb173-test/main.cpp
 iostream

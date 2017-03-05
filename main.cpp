@@ -21,12 +21,13 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(argv[1], "decrypt") == 0){
-        if (argc == 3){
-            decryptFileAES_128(argv[2]);
+        if (argc == 4){
+
+            decryptFileAES_128(argv[2], strtoul(argv[3], nullptr, 10));
         }
         else{
-            if (argc == 4){
-                decryptFileAES_128(argv[2], argv[3]);
+            if (argc == 5){
+                decryptFileAES_128(argv[2], strtoul(argv[3], nullptr, 10), argv[4]);
             }else{
                 std::cout << "invalid number of arguments" << std::endl;
                 printHelp();
