@@ -12,5 +12,5 @@ compiler:
   - clang
 
 # script to run after build (run tests, etc.)
-cd cmake-build-debug
+before_script: cd cmake-build-debug
 script: make all travis_test
