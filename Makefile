@@ -2,8 +2,8 @@
 # Variables CC and CXX are automatically set on all UNIX systems.
 
 # Variable settings
-CXXFLAGS=-Wall -Wextra -std=c++14 
-SOURCES_GEN=libs/config.h libs/check_config.h libs/target_config.h libs/aesni.h libs/aesni.c libs/aes.h libs/aes.c libs/sha512.h libs/sha512.c securityfunctions.h securityfunctions.cpp main.cpp
+CXXFLAGS=-fpermissive -std=c++11
+SOURCES_GEN=libs/aesni.c libs/aes.c libs/sha512.c securityfunctions.cpp
 # Source and object lists for main program
 SOURCES_MAIN=$(SOURCES_GEN) main.cpp
 OBJECTS_MAIN=$(SOURCES_MAIN:.cpp=.o)
