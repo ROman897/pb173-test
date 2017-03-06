@@ -83,7 +83,6 @@ TEST_CASE("test encryption","[aes-128 encryption]"){
         return;
     }
     std::string testOutput((std::istreambuf_iterator<char>(testFile)), std::istreambuf_iterator<char>());
-    //REQUIRE(output == rightOutput);
     REQUIRE(testOutput == output);
 }
 

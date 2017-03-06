@@ -28,9 +28,6 @@ unsigned char iv[16] = { 14, 31, 60, 126, 81, 12, 36, 102, 57, 9, 42, 51, 111, 4
 
 void print_hex(const unsigned char buf[], std::ostream& stream, size_t len)
 {
-
-    //stream << title << std::endl;
-
     for (size_t i = 0; i < len; ++i)
         stream << std::hex << std::uppercase << std::setfill('0') << std::setw(2)  << (unsigned short)buf[i] << std::nouppercase << std::dec;
 
@@ -59,7 +56,6 @@ void hashFileSHA2_512(const char* src, const char* dest = nullptr){
         print_hex(out, std::cout, 64);
         return;
     }
-    //std::copy(out, out + 64, std::ostreambuf_iterator<char>(destination));
     print_hex(out, destination, 64);
 }
 

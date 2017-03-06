@@ -1,5 +1,1 @@
-Podarilo sa mi z oficialnej stranky mbedtls stiahnut certifikat aj s verejnym
-klucom a ten kluc si importovat ku sebe, ale nepodarilo sa mi overit kniznicu
-ktoru som si stiahol, neprisiel som na to s cim mam overit ten verejny kluc.
-Podarilo sa mi overit hash checksum stiahnutej kniznice s tym co je napisane
-na stranke, ale to nie je uplne relevantne overenie.
+Neviem ako overit certifikat pre mbedtls, kedze ani oni sami na ich stranke neuvadzaju ziadny certifikat ku stiahnutemu suboru a teda ani nikoho kto by ho podpisal, a ani nikde inde som ho nevedel najst. Jedine co som overil je ze sedi SHA-1 checksum stiahnuteho suboru s tym co maju na stranke.
