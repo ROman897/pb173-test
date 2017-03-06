@@ -47,10 +47,9 @@ void hashFileSHA2_512(const char* src, const char* dest = nullptr){
     if (! source.is_open()){
         return;
     }
-    std::stringstream buffer;
-    buffer << source.rdbuf();
+    std::string buffer((std::istreambuf_iterator<char>(source)), std::istreambuf_iterator<char>());
     unsigned char out[64];
-    mbedtls_sha512((const unsigned char* )buffer.str().c_str(), buffer.str().length() - 1, out, 0);
+    mbedtls_sha512((const unsigned char* )buffer.c_str(), buffer.length(), out, 0);
     std::ofstream destination(dest, std::ios::out);
     if ( dest == nullptr || ! destination.is_open()){
         print_hex(out, std::cout, 64);
@@ -59,36 +58,28 @@ void hashFileSHA2_512(const char* src, const char* dest = nullptr){
     print_hex(out, destination, 64);
 }
 
-int getInt(){
-    return 0;
-}
-
 bool verifyHashSHA_512(const char* src, const char* hashDest){
     std::ifstream source(src, std::ios::in);
     if (! source.is_open()){
         std::cout << "invalid input file" << std::endl;
         return false;
     }
-    std::stringstream inbuffer;
-    inbuffer << source.rdbuf();
+
+    std::string inbuffer((std::istreambuf_iterator<char>(source)), std::istreambuf_iterator<char>());
     unsigned char out[64];
-    //std::cout << buffer.str();
-    mbedtls_sha512((const unsigned char* )inbuffer.str().c_str(), inbuffer.str().length() - 1, out, 0);
+    mbedtls_sha512((const unsigned char* )inbuffer.c_str(), inbuffer.length(), out, 0);
     std::ifstream hash(hashDest, std::ios::in);
     if ( ! hash.is_open()){
         std::cout << "invalid hash file" << std::endl;
         return false;
     }
 
-    std::stringstream outbuffer;
-    outbuffer << hash.rdbuf();
+    std::string outbuffer((std::istreambuf_iterator<char>(hash)), std::istreambuf_iterator<char>());
 
     std::stringstream hashStream;
     print_hex(out, hashStream, 64);
     bool accept = true;
-    std::string hashFromFile = outbuffer.str().substr(0, outbuffer.str().length() - 1);
-
-    if (hashStream.str() != hashFromFile){
+    if (hashStream.str() != outbuffer){
         accept = false;
     }
 

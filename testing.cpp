@@ -20,16 +20,14 @@ TEST_CASE("test hash", "[sha-512]") {
     if (! source.is_open()){
         return;
     }
-    source << "akafuka" << std::ios::eofbit;
+    source << "akafuka";
     source.close();
     hashFileSHA2_512("./files/in", "./files/out");
     std::ifstream hash("./files/out", std::ios::in);
-    std::stringstream buffer;
-    buffer << hash.rdbuf();
 
-
+    std::string buffer((std::istreambuf_iterator<char>(hash)), std::istreambuf_iterator<char>());
     std::string correct = "10CFD704255F7D88EC120EA7510A80FC65B4DA3E96C4E9E3FB6822EB1D79B2220D03D5220D26AD4A87D4A7D193020BCA365BEB8264DDC6034CAF4B21A7D67164";
-    REQUIRE(buffer.str() == correct);
+    REQUIRE(buffer == correct);
 
 }
 
@@ -38,7 +36,7 @@ TEST_CASE("test verify hash", "[sha-512]") {
     if (! source.is_open()){
         return;
     }
-    source << "hasknfdjkqnwnqowe156451 665a464654" << std::ios::eofbit;
+    source << "hasknfdjkqnwnqowe156451 665a464654";
     source.close();
 
     std::string correct = "122A0637F04F10EF450EA16B8A9DAB0BF7CCF5EB525B1D942F66DDAD9D17C4FCCA12F45B982E3929E4D0CA950EE41C2AD621EED412ED144B7EF3A1E2842D6CCB" ;
@@ -46,7 +44,7 @@ TEST_CASE("test verify hash", "[sha-512]") {
     if (! destCorrect.is_open()){
         return;
     }
-    destCorrect << correct << std::ios::eofbit;
+    destCorrect << correct;
     destCorrect.close();
 
 
@@ -110,7 +108,7 @@ TEST_CASE("test encryption and decryption","[aes-128]"){
     if (! source.is_open()){
         return;
     }
-    std::string originalInput((std::istreambuf_iterator<char>(sourceF)), std::istreambuf_iterator<char>());
+    std::string originalInput;
 
     REQUIRE(originalInput == decryptedText);
 
